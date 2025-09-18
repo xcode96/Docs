@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 27001 ISMS Toolkit File Structure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .search-box {
+            flex-grow: 1;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #4a6fc0;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 111, 192, 0.2);
+        }
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-buttons button {
+            padding: 10px 20px;
+            background: #4a6fc0;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .filter-buttons button:hover {
+            background: #3a5ca9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .filter-buttons button.active {
+            background: #1a2a6c;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .file-structure {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+        .structure-header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .structure-header h2 {
+            font-size: 1.4rem;
+        }
+        .structure-content {
+            padding: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .folder {
+            margin-bottom: 10px;
+        }
+        .folder-header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 3px solid #ffc107;
+        }
+        .folder-header:hover {
+            background: #e9ecef;
+        }
+        .folder-icon {
+            margin-right: 10px;
+            color: #ffc107;
+            width: 20px;
+            text-align: center;
+        }
+        .folder-name {
+            font-weight: 600;
+            color: #2c3e50;
+            flex-grow: 1;
+        }
+        .file-count {
+            background: #6c757d;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .folder-content {
+            margin-left: 25px;
+            margin-top: 10px;
+            display: none;
+        }
+        .folder-content.open {
+            display: block;
+        }
+        .file {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .file:hover {
+            background: #f1f8ff;
+            border-radius: 4px;
+        }
+        .file-icon {
+            margin-right: 10px;
+            color: #6c757d;
+            width: 20px;
+            text-align: center;
+        }
+        .file-name {
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        .file-type {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-left: 10px;
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        .highlight {
+            background-color: #fff8e1;
+            padding: 2px 0;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .stats {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .stat-item {
+            text-align: center;
+            min-width: 150px;
+        }
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a2a6c;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        .iso-badge {
+            display: inline-block;
+            background: #1a2a6c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+            }
+            .filter-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            .structure-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stat-item {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .footer a {
+            color: #fdbb2d;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========== NEW STYLES FOR ACTIONS ========== */
+        .file-actions {
+            display: flex;
+            gap: 5px;
+            margin-left: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .file:hover .file-actions {
+            opacity: 1;
+        }
+        .btn-action {
+            padding: 4px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .btn-download {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-download:hover {
+            background-color: #218838;
+        }
+        .btn-preview {
+            background-color: #17a2b8;
+            color: white;
+        }
+        .btn-preview:hover {
+            background-color: #138496;
+        }
+
+        /* ========== MODAL STYLES ========== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f1f1;
+        }
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6c757d;
+        }
+        .modal-content {
+            line-height: 1.8;
+        }
+        .modal-content p {
+            margin-bottom: 15px;
+        }
+        .modal-content strong {
+            color: #1a2a6c;
+        }
+        .modal-footer {
+            margin-top: 25px;
+            text-align: right;
+        }
+        .btn-close {
+            padding: 8px 20px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .btn-close:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-shield-alt"></i> ISO 27001 ISMS Toolkit</h1>
+            <p class="description">
+                This interactive viewer displays the complete file structure of the ISO 27001 Information Security Management System Toolkit. 
+                Explore folders, search for specific files, filter by file type, and use the Download or Preview actions for any file.
+            </p>
+            <div class="iso-badge">ISO 27001:2022 Compliant</div>
+        </header>
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search for files or folders...">
+            </div>
+            <div class="filter-buttons">
+                <button class="active" data-filter="all"><i class="fas fa-file"></i> All Files</button>
+                <button data-filter="docx"><i class="fas fa-file-word"></i> Word</button>
+                <button data-filter="xlsx"><i class="fas fa-file-excel"></i> Excel</button>
+                <button data-filter="pdf"><i class="fas fa-file-pdf"></i> PDF</button>
+            </div>
+        </div>
+        <div class="file-structure">
+            <div class="structure-header">
+                <h2><i class="fas fa-folder-tree"></i> File Structure</h2>
+                <span id="selected-filter">Showing: All Files</span>
+            </div>
+            <div class="structure-content" id="structure-content">
+                <!-- File structure will be generated here by JavaScript -->
+            </div>
+        </div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">180+</div>
+                <div class="stat-label">Total Files</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Main Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Policies & Templates</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Infographics</div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>ISO 27001 ISMS Toolkit File Structure Viewer | Open Source Project</p>
+            <p>Resources for implementing Information Security Management Systems according to ISO 27001 standards</p>
+            <p>For implementation guidance, visit <a href="#">ISO27001security.com</a></p>
+        </div>
+    </div>
+
+    <!-- Modal for File Preview -->
+    <div class="modal-overlay" id="preview-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-file-name">File Details</h3>
+                <button class="modal-close" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-content" id="modal-file-details">
+                <p><strong>File Name:</strong> <span id="preview-name">-</span></p>
+                <p><strong>File Type:</strong> <span id="preview-type">-</span></p>
+                <p><strong>File Size:</strong> <span id="preview-size">~1.5 MB (Simulated)</span></p>
+                <p><strong>Description:</strong> <span id="preview-desc">This is a placeholder description for the selected file. In a production environment, this could contain metadata, a preview, or relevant information about the document.</span></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close" id="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // File structure data (unchanged)
+        const fileStructure = [
+            {
+                name: "ISMS",
+                type: "folder",
+                children: [
+                    {
+                        name: "ISO 27001 Toolkit Templates",
+                        type: "folder",
+                        children: [
+                            { name: "403 - ISMS Objectives and Issue Identified (template).docx", type: "docx" },
+                            { name: "501 - Information Security Policy Template.docx", type: "docx" },
+                            { name: "BYOD Policy.docx", type: "docx" }
+                        ]
+                    },
+                    {
+                        name: "ISO-27001-2022-Toolkit-main",
+                        type: "folder",
+                        children: [
+                            {
+                                name: "1. Gap Assessment Plan",
+                                type: "folder",
+                                children: [
+                                    { name: "Gap Assessment Plan.xlsx", type: "xlsx" },
+                                    { name: "Guidance on Gap Assessment.docx", type: "docx" }
+                                ]
+                            },
+                            {
+                                name: "2. SOA",
+                                type: "folder",
+                                children: [
+                                    { name: "Statement of Applicability with Implementation Status (SOA).xlsx", type: "xlsx" }
+                                ]
+                            },
+                            {
+                                name: "3. Risk Register",
+                                type: "folder",
+                                children: [
+                                    { name: "Guidance for Completing Risk Register.docx", type: "docx" },
+                                    { name: "Risk Register.xlsx", type: "xlsx" }
+                                ]
+                            },
+                            {
+                                name: "4. Scope and Context Definition",
+                                type: "folder",
+                                children: [
+                                    { name: "Scope.docx", type: "docx" }
+                                ]
+                            },
+                            {
+                                name: "5. Asset Inventory",
+                                type: "folder",
+                                children: [
+                                    { name: "Asset Inventory.xlsx", type: "xlsx" }
+                                ]
+                            },
+                            {
+                                name: "6. Business Continuity and Disaster Recovery Plan",
+                                type: "folder",
+                                children: [
+                                    { name: "Business Continuity Plan.docx", type: "docx" },
+                                    { name: "Disaster Recovery Plan.docx", type: "docx" }
+                                ]
+                            },
+                            {
+                                name: "7. Information Security Policy and Procedures",
+                                type: "folder",
+                                children: [
+                                    { name: "Information Security Policy and Procedures.docx", type: "docx" }
+                                ]
+                            },
+                            {
+                                name: "8. Awareness and Training Plan",
+                                type: "folder",
+                                children: [
+                                    { name: "Awareness and Training Plan.docx", type: "docx" }
+                                ]
+                            },
+                            {
+                                name: "9. Management Review Meeting",
+                                type: "folder",
+                                children: [
+                                    { name: "Management Review Meeting.docx", type: "docx" },
+                                    { name: "Performance Measurement and Findings.xlsx", type: "xlsx" }
+                                ]
+                            },
+                            {
+                                name: "10. ISMS Checklists",
+                                type: "folder",
+                                children: [
+                                    { name: "ISMS Implementation Checklist.docx", type: "docx" },
+                                    { name: "Information Risk Checklist.docx", type: "docx" },
+                                    { name: "Mandatory ISMS Documentation Checklist.docx", type: "docx" }
+                                ]
+                            },
+                            {
+                                name: "11. Internal Audit Plan",
+                                type: "folder",
+                                children: [
+                                    { name: "Internal Audit Checklist.xlsx", type: "xlsx" },
+                                    { name: "Internal Audit Plan.docx", type: "docx" }
+                                ]
+                            },
+                            {
+                                name: "12. Return on Investment (ROI)",
+                                type: "folder",
+                                children: [
+                                    { name: "Return on Investment (ROI).docx", type: "docx" }
+                                ]
+                            },
+                            { name: "LICENSE", type: "file" },
+                            { name: "README.md", type: "md" }
+                        ]
+                    },
+                    {
+                        name: "ISO27001security_dotcom_ISO27l_Toolkit_2025-3",
+                        type: "folder",
+                        children: [
+                            { name: "Adaptive SME Security v1 2024.pdf", type: "pdf" },
+                            { name: "ISO27001security dotcom List of files in the ISO27k Toolkit March 2025.txt", type: "txt" },
+                            { name: "ISO27k ISMS 2 ISO27k standards listing 2024-12.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 4 generic ISMS cost benefit analysis 2025.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 4.4 mandatory and discretionary documentation guideline  2025.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 6.1 Information risk register v3 2024.xlsm", type: "xlsm" },
+                            { name: "ISO27k ISMS 6.1 Iterative risk analysis.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 6.1 SoA 2022 Español Rev03 2022.xlsx", type: "xlsx" },
+                            { name: "ISO27k ISMS 6.1 SoA 2022 Portugues Rev01 2022.xlsx", type: "xlsx" },
+                            { name: "ISO27k ISMS 6.1 SoA 2025.xlsx", type: "xlsx" },
+                            { name: "ISO27k ISMS 6.1 guideline on security control attributes 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 6.1 information risk register v2 2012 - Brazilian Portuguese.xlsm", type: "xlsm" },
+                            { name: "ISO27k ISMS 6.1.2 information risk catalogue 2023.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 6.3 infosec policy on change and config management 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 7.3 FAQ one pager 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 7.3 prepare to be audited leaflet 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 7.4 intro and gap analysis email template 2022.txt", type: "txt" },
+                            { name: "ISO27k ISMS 9.2 audit exercise 2021 - Brazilian Portuguese.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 9.2 audit exercise 2021 - English.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 9.2 audit exercise 2021 - crib sheet - Brazilian Portuguese.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 9.2 audit exercise 2021 - crib sheet - English.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 9.2 internal audit procedure 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 9.3 management review meeting agenda 2015 - Brazilian Portuguese.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS 9.3 management review meeting agenda 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A5.10 professional services infosec checklists 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A5.15 skeleton policy on access control 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A5.19 infosec policy on outsourcing 2023.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A5.29 roles and responsibilities for contingency planning 2008 - Brazilian Portuguese.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A5.32 skeleton policy on intellectual property 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A5.34 briefing on ISO27k controls for GDPR 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A5.34 skeleton policy on privacy 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A5.4 skeleton policy on  management responsibilities 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A5.9 information asset checklist 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A5.9 information asset inventory 2012 - Brazilian Portuguese.xlsm", type: "xlsm" },
+                            { name: "ISO27k ISMS A6 skeleton policy on HR overall 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A6.2 skeleton policy on employment contracts 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A6.3 infosec policy on awareness and training 2023.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A7.1 skeleton policy on physical controls 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A7.12 skeleton policy on cabling security 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A7.14 skeleton policy on secure disposal 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A7.4 skeleton policy on physical security monitoring 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A7.9 skeleton policy on off-site infosec 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A8.12 skeleton policy on data leakage prevention 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A8.13 data restoration form 2012 - Brazilian Portuguese.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS A8.13 skeleton policy on backups 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A8.20 skeleton policy on networks security 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS A8.32 skeleton policy on change management 2023.txt", type: "txt" },
+                            { name: "ISO27k ISMS documentation mind map 2023.jpg", type: "jpg" },
+                            { name: "ISO27k ISMS gap analysis questionnaire v1 2024.xlsx", type: "xlsx" },
+                            { name: "ISO27k ISMS implementation and certification process 2022.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS implementation checklist 2024.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS implementation guideline 2024.pdf", type: "pdf" },
+                            { name: "ISO27k ISMS implementation project estimator v3 2024.xlsx", type: "xlsx" },
+                            { name: "ISO27k ISMS technology briefing DRAFT 2024.pdf", type: "pdf" },
+                            { name: "ISO27k Toolkit terms and conditions of use.pdf", type: "pdf" }
+                        ]
+                    },
+                    {
+                        name: "iso27000toolkit-master",
+                        type: "folder",
+                        children: [
+                            {
+                                name: "ISMS Governance, Management & Implementation Guidance",
+                                type: "folder",
+                                children: [
+                                    { name: "Awareness Presentation.pptx", type: "pptx" },
+                                    { name: "Business case template for ISO IEC 27001 ISMS.docx", type: "docx" },
+                                    { name: "Business value of ISO27K case study.docx", type: "docx" },
+                                    { name: "Business value of ISO27K case study.pdf", type: "pdf" },
+                                    { name: "ISMS Management Review Meeting Agenda.docx", type: "docx" },
+                                    { name: "ISMS Management Review Meeting Agenda.pdf", type: "pdf" },
+                                    { name: "ISMS Mandatory Documentation Checklist.docx", type: "docx" },
+                                    { name: "ISMS Project plan.mpp", type: "mpp" },
+                                    { name: "ISMS and controls status with SoA and gaps.xlsx", type: "xlsx" },
+                                    { name: "ISMS implementation project estimator.xlsx", type: "xlsx" },
+                                    { name: "Information security program maturity assessment tool.xlsx", type: "xlsx" },
+                                    {
+                                        name: "Sample Awareness Posters",
+                                        type: "folder",
+                                        children: [
+                                            { name: "115-reporting-incidents-poster.jpg", type: "jpg" },
+                                            { name: "116-Compromised-Computer-poster.jpg", type: "jpg" },
+                                            { name: "202-Protecting-Business-Information.jpg", type: "jpg" },
+                                            { name: "207-BYOD.jpg", type: "jpg" },
+                                            { name: "208-Data-Destruction.jpg", type: "jpg" },
+                                            { name: "209-Understanding-threats.jpg", type: "jpg" },
+                                            { name: "ENISA_poster_ATM_skimmed card_01.pdf", type: "pdf" },
+                                            { name: "ENISA_poster_Ctrl Alt Del_02.pdf", type: "pdf" },
+                                            { name: "ENISA_poster_Going for a coffee_03.pdf", type: "pdf" },
+                                            { name: "ENISA_poster_Going for a meeting_01.pdf", type: "pdf" },
+                                            { name: "cybersecurity-month-2018-poster-03-clean-up-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-04-bait-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-05-firewalls-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-06-malware-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-08-get-shredding-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-11-protect-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-21-passwords-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-26-protect-your-data-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-28-scan-emails-en-ww.png", type: "png" },
+                                            { name: "cybersecurity-month-2018-poster-29-lock-devices-en-ww.png", type: "png" },
+                                            { name: "security-awareness-poster-microtraining-206-remote-computing.jpg", type: "jpg" },
+                                            { name: "security-awareness-poster-microtraining-210-encryption.jpg", type: "jpg" }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: "ISMS Overview and Introductory Materials",
+                                type: "folder",
+                                children: [
+                                    { name: "ISMS Auditing Guideline.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Basic Process Croatian.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Basic Process Croatian.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Basic Process Italian.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Basic Process Italian.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Basic Process Polish.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Basic Process Polish.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Basic Process Spanish.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Basic Process Spanish.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Detailed Process Croatian.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Detailed Process Italian.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Detailed Process Polish.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Detailed Process Spanish.png", type: "png" },
+                                    { name: "ISMS Implementation and Certification Overview.pptx", type: "pptx" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 Basic Process.jpg", type: "jpg" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 French.jpg", type: "jpg" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 French.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 French.vsdx", type: "vsdx" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 German.jpg", type: "jpg" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 German.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 German.vsdx", type: "vsdx" },
+                                    { name: "ISMS Implementation and Certification Process 4v1 Procedures and Documents.jpg", type: "jpg" },
+                                    { name: "ISMS Implementation and Certification Process 4v1.jpg", type: "jpg" },
+                                    { name: "ISMS Implementation and Certification Process 4v1.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Process 4v1.vsdx", type: "vsdx" },
+                                    { name: "ISMS Implementation and Certification Process v3.pdf", type: "pdf" },
+                                    { name: "ISMS Implementation and Certification Process v3.vsdx", type: "vsdx" },
+                                    { name: "ISMS Information Risk Management Process v1 Flowchart.pdf", type: "pdf" },
+                                    { name: "ISMS Information Risk Management Process v1-Basic RM Process Flowchart.jpg", type: "jpg" },
+                                    { name: "ISMS Information Risk Management Process v1-Detailed Process Flowchart.jpg", type: "jpg" },
+                                    { name: "ISMS Information Risk Management Process v1.vsdx", type: "vsdx" },
+                                    { name: "ISO 27001 Maltego Mind Map.mtgx", type: "mtgx" },
+                                    { name: "ISO 27001 Maltego Mind Map.pdf", type: "pdf" },
+                                    { name: "ISO27K FAQ.pdf", type: "pdf" },
+                                    { name: "ISO27K Standards List.pdf", type: "pdf" }
+                                ]
+                            },
+                            {
+                                name: "ISMS Procedures, Guidelines and Other Supporting Documents",
+                                type: "folder",
+                                children: [
+                                    { name: "Asset Register.xlsx", type: "xlsx" },
+                                    { name: "Asset inventory.xlsm", type: "xlsm" },
+                                    { name: "Controls Cross Check 2013.xlsx", type: "xlsx" },
+                                    { name: "Corrective Action Procedure.pdf", type: "pdf" },
+                                    { name: "Data Restoration Form.docx", type: "docx" },
+                                    { name: "FMEA Spreadsheet.xlsx", type: "xlsx" },
+                                    { name: "GDPR-ISO27K Mapping.docx", type: "docx" },
+                                    { name: "GDPR-ISO27K Mapping.pdf", type: "pdf" },
+                                    { name: "Guideline on Information Asset Valuation.docx", type: "docx" },
+                                    { name: "Guideline on Information Asset Valuation.pdf", type: "pdf" },
+                                    { name: "ISMS Auditing Guideline.docx", type: "docx" },
+                                    { name: "ISMS Information Risk Register.xlsm", type: "xlsm" },
+                                    { name: "ISMS Internal Audit Procedure.docx", type: "docx" },
+                                    { name: "Information Classification Matrix.xlsx", type: "xlsx" },
+                                    { name: "Intro and Gap Analysis email Template.txt", type: "txt" },
+                                    { name: "Non-conformity Corrective Preventive Action Form.docx", type: "docx" },
+                                    { name: "Preventive Action Procedure.pdf", type: "pdf" },
+                                    { name: "SOA 2013 in 5 languages.xlsx", type: "xlsx" }
+                                ]
+                            },
+                            {
+                                name: "ISMS Related Job Descriptions, Roles and Responsibilities",
+                                type: "folder",
+                                children: [
+                                    { name: "ISM organization chart data.xlsx", type: "xlsx" },
+                                    {
+                                        name: "Job Descriptions",
+                                        type: "folder",
+                                        children: [
+                                            { name: "BYOD Security Manager.docx", type: "docx" },
+                                            { name: "Business Continuity Manager.docx", type: "docx" },
+                                            { name: "Chief Information Security Officer.docx", type: "docx" },
+                                            { name: "Compliance Manager.docx", type: "docx" },
+                                            { name: "Counterespionage Manager.docx", type: "docx" },
+                                            { name: "Database Security Manager.docx", type: "docx" },
+                                            { name: "Fraud Manager.docx", type: "docx" },
+                                            { name: "IT Audit Manager.docx", type: "docx" },
+                                            { name: "IT Auditor.docx", type: "docx" },
+                                            { name: "Industrial Information Risk and Security Manager.docx", type: "docx" },
+                                            { name: "Information Risk and Security Manager.docx", type: "docx" },
+                                            { name: "Information Security Incident Manager.docx", type: "docx" },
+                                            { name: "Intellectual Property Manager.docx", type: "docx" },
+                                            { name: "Internet Risk and Security Manager.docx", type: "docx" },
+                                            { name: "Iot and BYOD Security Manager.docx", type: "docx" },
+                                            { name: "Malware Analyst.docx", type: "docx" },
+                                            { name: "Network Risk Analyst.docx", type: "docx" },
+                                            { name: "Network Risk Manager.docx", type: "docx" },
+                                            { name: "Permissions Manager.docx", type: "docx" },
+                                            { name: "Physical Security Manager.docx", type: "docx" },
+                                            { name: "Privacy Officer.docx", type: "docx" },
+                                            { name: "Security Administration Team Leader.docx", type: "docx" },
+                                            { name: "Security Administrator.docx", type: "docx" },
+                                            { name: "Security Awareness Contact.docx", type: "docx" },
+                                            { name: "Security Awareness Manager.docx", type: "docx" },
+                                            { name: "Security Awareness Officer.docx", type: "docx" },
+                                            { name: "Technology Risk Manager.docx", type: "docx" },
+                                            { name: "Whistleblowers' Hotline Case Handler.docx", type: "docx" },
+                                            { name: "Whistleblowers' Hotline Manager.docx", type: "docx" },
+                                            { name: "Workplace Information Security Representative.docx", type: "docx" }
+                                        ]
+                                    },
+                                    { name: "Organization of Information Security.docx", type: "docx" },
+                                    { name: "RASCI table.xlsx", type: "xlsx" },
+                                    { name: "Roles and Responsibilities for Contingency Planning.docx", type: "docx" },
+                                    { name: "Roles and Responsibilities for Contingency Planning.pdf", type: "pdf" },
+                                    { name: "Technical Briefing on Security Roles and Responsibilities Matrix.pdf", type: "pdf" }
+                                ]
+                            },
+                            {
+                                name: "Model Information Security Policies",
+                                type: "folder",
+                                children: [
+                                    { name: "Model Policy on Change Management and Control.docx", type: "docx" },
+                                    { name: "Model Policy on Information Classification.pdf", type: "pdf" },
+                                    { name: "Model Policy on Information Security.pdf", type: "pdf" },
+                                    { name: "Model Policy on Malware.pdf", type: "pdf" },
+                                    { name: "Model Policy on Outsourcing.docx", type: "docx" },
+                                    { name: "Model Policy on Security Awareness and Training.pdf", type: "pdf" }
+                                ]
+                            },
+                            { name: "ISO27K TOOLKIT.pdf", type: "pdf" },
+                            { name: "README.md", type: "md" }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: "Infographics",
+                type: "folder",
+                children: [
+                    { name: "+90% RESUME.jpeg", type: "jpeg" },
+                    { name: "052c80fadf40fc8d60600f87946262b0.jpg", type: "jpg" },
+                    { name: "10 ACTIVE DIRECTORY ATTACKS.jpeg", type: "jpeg" },
+                    { name: "10 free siems.jpeg", type: "jpeg" },
+                    { name: "15 TYPES OF CYBERATTACK.gif", type: "gif" },
+                    { name: "20 API SEC TIPS.gif", type: "gif" },
+                    { name: "4 HOURS A DAY AND MAKE 730K.jpeg", type: "jpeg" },
+                    { name: "7 DATA TERMS.gif", type: "gif" },
+                    { name: "AGILE DEVOPS.gif", type: "gif" },
+                    { name: "AGILE TESTING.gif", type: "gif" },
+                    { name: "API ARCHITECTURE STYLE.gif", type: "gif" },
+                    { name: "API GATEWAY.gif", type: "gif" },
+                    { name: "ATTACK E EXPLOITS IN OSI.jpeg", type: "jpeg" },
+                    { name: "AUTHENTICATION METHODS.gif", type: "gif" },
+                    { name: "AUTOMOTIVE CYBERSEC.jpeg", type: "jpeg" },
+                    { name: "AVIATION CYBER SECURITY.jpeg", type: "jpeg" },
+                    { name: "AZURE ARCHITECTURE.gif", type: "gif" },
+                    { name: "BIG DATA PIPELINES ON CLOUD.gif", type: "gif" },
+                    { name: "BLUE VS RED.jpeg", type: "jpeg" },
+                    { name: "BODY LANGUAGE.jpeg", type: "jpeg" },
+                    { name: "CCNA-Sheet-Summary-Pdf_page-0001-990x1285.webp", type: "webp" },
+                    { name: "CISSP CHEAT SHEET.jpeg", type: "jpeg" },
+                    { name: "CLOUD APP PROTECTION.gif", type: "gif" },
+                    { name: "CLOUD COMPARISION 3.gif", type: "gif" },
+                    { name: "CLOUD COMPARISION.gif", type: "gif" },
+                    { name: "CLOUD LOAD BALANCER.gif", type: "gif" },
+                    { name: "CLOUD RISK FRAMEWORK.jpeg", type: "jpeg" },
+                    { name: "CLOUD SECURITY FRAMEWORK.jpeg", type: "jpeg" },
+                    { name: "CLOUD SECURITY.jpeg", type: "jpeg" },
+                    { name: "COBIT ISO NIST.jpeg", type: "jpeg" },
+                    { name: "COMMON LINUX COMMANDS.gif", type: "gif" },
+                    { name: "COMPLIANCES.jpeg", type: "jpeg" },
+                    { name: "CROSS SITE REQUEST FORGERY.gif", type: "gif" },
+                    { name: "CYBER ECO SYSTEM.jpeg", type: "jpeg" },
+                    { name: "CYBER SEC EXPERIENCE.gif", type: "gif" },
+                    { name: "CYBER SEC ROLES.jpeg", type: "jpeg" },
+                    { name: "CYBER SECURITY.jpeg", type: "jpeg" },
+                    { name: "Common-Network-Ports-Quick-Reference.webp", type: "webp" },
+                    { name: "Cybersec Search Engines.gif", type: "gif" },
+                    { name: "DATA CONCEPTS.gif", type: "gif" },
+                    { name: "DATA SEC AND DATA PROTECTIONS.jpeg", type: "jpeg" },
+                    { name: "DATA SECURITY.gif", type: "gif" },
+                    { name: "DATASETS TYPES.gif", type: "gif" },
+                    { name: "DIGITAL SIGNATURE.jpeg", type: "jpeg" },
+                    { name: "DNS CHACHE POISONING.gif", type: "gif" },
+                    { name: "DOCKE COMMANDS.gif", type: "gif" },
+                    { name: "DOCKER.gif", type: "gif" },
+                    { name: "Docker Image Build.gif", type: "gif" },
+                    { name: "EMAIL TIPS.jpeg", type: "jpeg" },
+                    { name: "ENCODING ENCRYPTION HASH.jpeg", type: "jpeg" },
+                    { name: "EVOLUTION OF SOFTWARE ARCHITECTURE.gif", type: "gif" },
+                    { name: "EXCEL TIPS.jpeg", type: "jpeg" },
+                    { name: "FIREWALL USES.jpeg", type: "jpeg" },
+                    { name: "GPT JOBSEEKING.gif", type: "gif" },
+                    { name: "HEALTHCARE SECURITY.jpeg", type: "jpeg" },
+                    { name: "HMAC.jpeg", type: "jpeg" },
+                    { name: "HTTP REQUESTS.jpeg", type: "jpeg" },
+                    { name: "HTTPS.gif", type: "gif" },
+                    { name: "IDOR WEB ATTACK.gif", type: "gif" },
+                    { name: "INCIDENT RESPONSE METHODS.jpeg", type: "jpeg" },
+                    { name: "INCIDENT RESPONSE.gif", type: "gif" },
+                    { name: "IODOR WEB ATTACK.gif", type: "gif" },
+                    { name: "ISO 27001.jpeg", type: "jpeg" },
+                    { name: "Identity Access Management.jpg", type: "jpg" },
+                    { name: "LINUX BOOT 2.gif", type: "gif" },
+                    { name: "LINUX BOOT.gif", type: "gif" },
+                    { name: "LINUX COMMANDS.gif", type: "gif" },
+                    { name: "LINUX DIRECTORY.gif", type: "gif" },
+                    { name: "LINUX FILE PERMISISON CHEATSHEET.gif", type: "gif" },
+                    { name: "LINUX FILE PERMISSION.jpeg", type: "jpeg" },
+                    { name: "LINUX FILE SYSTEM.gif", type: "gif" },
+                    { name: "LINUX WORKINGS.gif", type: "gif" },
+                    { name: "MACHINE LERNING ALGORITHMS.gif", type: "gif" },
+                    { name: "MALWARE AND RANSOMWARE.gif", type: "gif" },
+                    { name: "MAN IN THE MIDDLE.gif", type: "gif" },
+                    { name: "MANAGING SENSITIVE DATA.gif", type: "gif" },
+                    { name: "MICROPROCESSOR VS MICROCONTROLLER.gif", type: "gif" },
+                    { name: "MILITARY CYBERSECURITY.jpeg", type: "jpeg" },
+                    { name: "NETWORK PROTOCOLS 2.gif", type: "gif" },
+                    { name: "NETWORK PROTOCOLS.gif", type: "gif" },
+                    { name: "NIST 2.0.gif", type: "gif" },
+                    { name: "Network Protocol Dependecies.jpg", type: "jpg" },
+                    { name: "OSI LAyer Ataack Mitigation.gif", type: "gif" },
+                    { name: "OSI MODEL.gif", type: "gif" },
+                    { name: "OSI VS CYBER ATTACKS.gif", type: "gif" },
+                    { name: "PATH TO GET A JOB IN CYBER SEC.jpeg", type: "jpeg" },
+                    { name: "PERSONALITY TYPES.jpeg", type: "jpeg" },
+                    { name: "PRODUCTIVITY.jpeg", type: "jpeg" },
+                    { name: "PROGRAMMING BUGS.gif", type: "gif" },
+                    { name: "RAILK METRO CYBERSEC.jpeg", type: "jpeg" },
+                    { name: "RAILWAY SECURITY.jpeg", type: "jpeg" },
+                    { name: "RISK ASSETMENT.gif", type: "gif" },
+                    { name: "ROTKIT.gif", type: "gif" },
+                    { name: "SECURE VS INSECURE PORTS.jpeg", type: "jpeg" },
+                    { name: "SERVER SIDE REQUEST FORGERY.jpeg", type: "jpeg" },
+                    { name: "SINGLE SIGN ON.gif", type: "gif" },
+                    { name: "SOCIAL ENGINEERING.gif", type: "gif" },
+                    { name: "SOFTARE SECURITY.jpeg", type: "jpeg" },
+                    { name: "SOFTWARE ARCHITECTURE.gif", type: "gif" },
+                    { name: "SPYWARE.gif", type: "gif" },
+                    { name: "SSO AND SAML.gif", type: "gif" },
+                    { name: "SUB DOMAIN TAKEOVER.gif", type: "gif" },
+                    { name: "SYSTEM DESIGN.gif", type: "gif" },
+                    { name: "TOP NETWORK SECURITY.gif", type: "gif" },
+                    { name: "TROJAN.gif", type: "gif" },
+                    { name: "TYPES OF DATA.gif", type: "gif" },
+                    { name: "TYPES OF IP.gif", type: "gif" },
+                    { name: "TYPES OF LOGS.jpeg", type: "jpeg" },
+                    { name: "TYPES OF VIRUS.gif", type: "gif" },
+                    { name: "Types of Firewalls.jpg", type: "jpg" },
+                    { name: "URL.gif", type: "gif" },
+                    { name: "VPN.gif", type: "gif" },
+                    { name: "VULNERABILITY MANAGEMENT.jpeg", type: "jpeg" },
+                    { name: "WATERING HOLE ATTACK.gif", type: "gif" },
+                    { name: "WIRELESS NETWORK ATTACK.gif", type: "gif" },
+                    { name: "Web App Architechture.gif", type: "gif" },
+                    { name: "Windows Directories.jpg", type: "jpg" },
+                    { name: "ZTA VS VPN.jpeg", type: "jpeg" },
+                    { name: "a543cb0bf6521439b7c0b6e89bf6eb68.jpg", type: "jpg" },
+                    { name: "api security for security compliance.jpeg", type: "jpeg" },
+                    { name: "avoid burnuout.jpeg", type: "jpeg" },
+                    { name: "ccna cheet sheet.webp", type: "webp" },
+                    { name: "common network ports.webp", type: "webp" },
+                    { name: "cyber security health list.jpeg", type: "jpeg" },
+                    { name: "cybersec acronyms.jpeg", type: "jpeg" },
+                    { name: "cybersec roles.jpeg", type: "jpeg" },
+                    { name: "ddos.jpeg", type: "jpeg" },
+                    { name: "designin secure systems.gif", type: "gif" },
+                    { name: "dns.gif", type: "gif" },
+                    { name: "encoding encryption tokenization.gif", type: "gif" },
+                    { name: "excel shortcuts.jpeg", type: "jpeg" },
+                    { name: "generative ai ecosystem.gif", type: "gif" },
+                    { name: "how email works.gif", type: "gif" },
+                    { name: "how git works.gif", type: "gif" },
+                    { name: "http status messages.gif", type: "gif" },
+                    { name: "ids vs ips.gif", type: "gif" },
+                    { name: "ids vs ips.jpg", type: "jpg" },
+                    { name: "ipaddress.gif", type: "gif" },
+                    { name: "iso27001-1.webp", type: "webp" },
+                    { name: "iso27001-2.png", type: "png" },
+                    { name: "iso27001-3.png", type: "png" },
+                    { name: "iso27002.png", type: "png" },
+                    { name: "iso31000-1.gif", type: "gif" },
+                    { name: "iso31000.jpg", type: "jpg" },
+                    { name: "linux boot process.gif", type: "gif" },
+                    { name: "linux cheatsheet.gif", type: "gif" },
+                    { name: "linux terminal shortcuts.jpeg", type: "jpeg" },
+                    { name: "mitre attack.jpeg", type: "jpeg" },
+                    { name: "most important aws services to learn.jpg", type: "jpg" },
+                    { name: "network troubleshooting.jpeg", type: "jpeg" },
+                    { name: "new-compliance-isms-ISO-27001-standard-2022.jpg", type: "jpg" },
+                    { name: "osi model.jpeg", type: "jpeg" },
+                    { name: "osint cheat sheet.jpeg", type: "jpeg" },
+                    { name: "remote file inclusion.jpeg", type: "jpeg" },
+                    { name: "siem homelab.jpeg", type: "jpeg" },
+                    { name: "soap vs rest vs graphicql.gif", type: "gif" },
+                    { name: "ssl cert.gif", type: "gif" },
+                    { name: "ssl tsl handshake.jpeg", type: "jpeg" },
+                    { name: "ssl.gif", type: "gif" },
+                    { name: "the-complete-computer-hardware-chart.webp", type: "webp" },
+                    { name: "thumb_1200_1553.png", type: "png" },
+                    { name: "types of firewalls.gif", type: "gif" },
+                    { name: "udp usage.jpeg", type: "jpeg" },
+                    { name: "web app test.jpeg", type: "jpeg" },
+                    { name: "xdr vs siem.gif", type: "gif" }
+                ]
+            }
+        ];
+
+        // File type icons mapping (unchanged)
+        const fileIcons = {
+            'folder': 'fas fa-folder',
+            'docx': 'fas fa-file-word',
+            'xlsx': 'fas fa-file-excel',
+            'pdf': 'fas fa-file-pdf',
+            'txt': 'fas fa-file-alt',
+            'jpg': 'fas fa-file-image',
+            'jpeg': 'fas fa-file-image',
+            'png': 'fas fa-file-image',
+            'gif': 'fas fa-file-image',
+            'pptx': 'fas fa-file-powerpoint',
+            'mpp': 'fas fa-file',
+            'xlsm': 'fas fa-file-excel',
+            'vsdx': 'fas fa-file',
+            'mtgx': 'fas fa-file',
+            'webp': 'fas fa-file-image',
+            'md': 'fas fa-file-alt'
+        };
+
+        // File type colors (unchanged)
+        const fileColors = {
+            'docx': '#2b579a',
+            'xlsx': '#217346',
+            'pdf': '#dc3545',
+            'pptx': '#d24726',
+            'folder': '#ffc107'
+        };
+
+        // Current filter state (unchanged)
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFileStructure(fileStructure);
+            setupEventListeners();
+            setupModal();
+        });
+
+        // Render the file structure
+        function renderFileStructure(structure) {
+            const container = document.getElementById('structure-content');
+            container.innerHTML = '';
+            structure.forEach(item => {
+                const element = createFileElement(item);
+                container.appendChild(element);
+            });
+        }
+
+        // Create a file/folder element
+        function createFileElement(item) {
+            if (item.type === 'folder') {
+                return createFolderElement(item);
+            } else {
+                return createFileElementItem(item);
+            }
+        }
+
+        // Create a folder element (unchanged)
+        function createFolderElement(folder) {
+            const folderElement = document.createElement('div');
+            folderElement.className = 'folder';
+            const folderHeader = document.createElement('div');
+            folderHeader.className = 'folder-header';
+            const folderIcon = document.createElement('i');
+            folderIcon.className = `folder-icon ${fileIcons.folder}`;
+            folderIcon.style.color = fileColors.folder;
+            const folderName = document.createElement('span');
+            folderName.className = 'folder-name';
+            folderName.textContent = folder.name;
+            const fileCount = document.createElement('span');
+            fileCount.className = 'file-count';
+            fileCount.textContent = countFiles(folder);
+            folderHeader.appendChild(folderIcon);
+            folderHeader.appendChild(folderName);
+            folderHeader.appendChild(fileCount);
+            const folderContent = document.createElement('div');
+            folderContent.className = 'folder-content';
+            folderHeader.addEventListener('click', function() {
+                folderContent.classList.toggle('open');
+                folderIcon.classList.toggle('fa-folder');
+                folderIcon.classList.toggle('fa-folder-open');
+            });
+            folder.children.forEach(child => {
+                const childElement = createFileElement(child);
+                folderContent.appendChild(childElement);
+            });
+            folderElement.appendChild(folderHeader);
+            folderElement.appendChild(folderContent);
+            return folderElement;
+        }
+
+        // Create a file element (MODIFIED to include action buttons)
+        function createFileElementItem(file) {
+            const fileElement = document.createElement('div');
+            fileElement.className = 'file';
+            fileElement.dataset.fileName = file.name;
+            fileElement.dataset.fileType = file.type;
+
+            const fileIcon = document.createElement('i');
+            fileIcon.className = `file-icon ${fileIcons[file.type] || 'fas fa-file'}`;
+            fileIcon.style.color = fileColors[file.type] || '#6c757d';
+
+            const fileName = document.createElement('span');
+            fileName.className = 'file-name';
+            fileName.textContent = file.name;
+
+            const fileType = document.createElement('span');
+            fileType.className = 'file-type';
+            fileType.textContent = file.type.toUpperCase();
+
+            // ========== NEW: Action Buttons ==========
+            const fileActions = document.createElement('div');
+            fileActions.className = 'file-actions';
+
+            const btnDownload = document.createElement('button');
+            btnDownload.className = 'btn-action btn-download';
+            btnDownload.innerHTML = '<i class="fas fa-download"></i> Download';
+            btnDownload.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent any potential event bubbling
+                triggerDownload(file.name, file.type);
+            });
+
+            const btnPreview = document.createElement('button');
+            btnPreview.className = 'btn-action btn-preview';
+            btnPreview.innerHTML = '<i class="fas fa-eye"></i> View';
+            btnPreview.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent any potential event bubbling
+                openPreviewModal(file.name, file.type);
+            });
+
+            fileActions.appendChild(btnDownload);
+            fileActions.appendChild(btnPreview);
+
+            fileElement.appendChild(fileIcon);
+            fileElement.appendChild(fileName);
+            fileElement.appendChild(fileType);
+            fileElement.appendChild(fileActions); // Add actions to file element
+
+            // Highlight if matches search
+            if (searchQuery && file.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+                const highlightedName = file.name.replace(
+                    new RegExp(`(${searchQuery})`, 'gi'), 
+                    '<span class="highlight">$1</span>'
+                );
+                fileName.innerHTML = highlightedName;
+            }
+
+            return fileElement;
+        }
+
+        // ========== NEW: DOWNLOAD FUNCTION ==========
+        function triggerDownload(fileName, fileType) {
+            // Create simulated content for the file
+            const content = `This is a simulated download for the file: "${fileName}".
+File Type: ${fileType.toUpperCase()}
+Generated on: ${new Date().toLocaleString()}
+
+Note: In a real application, this would be the actual content of the file fetched from a server.
+----------------------------------------
+ISO 27001 ISMS Toolkit
+© 2025 ISO27001security.com
+`;
+
+            // Create a Blob from the content
+            const blob = new Blob([content], { type: 'text/plain' });
+            
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = fileName; // This sets the filename for the download
+            
+            // Append to body, click, and remove
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            // Optional: Show a notification or log
+            console.log(`Download initiated for: ${fileName}`);
+        }
+
+        // ========== NEW: MODAL FUNCTIONS ==========
+        function setupModal() {
+            const modal = document.getElementById('preview-modal');
+            const closeModalBtns = document.querySelectorAll('#close-modal, #close-modal-btn');
+
+            closeModalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    modal.classList.remove('active');
+                });
+            });
+
+            // Close modal if clicked outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        function openPreviewModal(fileName, fileType) {
+            const modal = document.getElementById('preview-modal');
+            document.getElementById('modal-file-name').textContent = fileName;
+            document.getElementById('preview-name').textContent = fileName;
+            document.getElementById('preview-type').textContent = fileType.toUpperCase();
+            
+            // You can customize the description based on file type or name
+            let desc = `You are viewing details for "${fileName}". This file is part of the ISO 27001 ISMS Toolkit.`;
+            if (fileType === 'pdf') {
+                desc += ` This is a PDF document, typically used for policies, guidelines, or reports.`;
+            } else if (fileType === 'docx') {
+                desc += ` This is a Microsoft Word document, often used for templates or editable policies.`;
+            } else if (fileType === 'xlsx' || fileType === 'xlsm') {
+                desc += ` This is a Microsoft Excel spreadsheet, commonly used for registers, assessments, or data tracking.`;
+            } else if (fileType === 'jpg' || fileType === 'jpeg' || fileType === 'png' || fileType === 'gif') {
+                desc += ` This is an image file, likely an infographic or diagram.`;
+            }
+            document.getElementById('preview-desc').textContent = desc;
+
+            modal.classList.add('active');
+        }
+
+        // Count files in a folder (recursive) (unchanged)
+        function countFiles(folder) {
+            let count = 0;
+            function countRecursive(item) {
+                if (item.type === 'folder') {
+                    item.children.forEach(child => countRecursive(child));
+                } else {
+                    count++;
+                }
+            }
+            countRecursive(folder);
+            return count;
+        }
+
+        // Set up event listeners (unchanged)
+        function setupEventListeners() {
+            // Search input
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', function() {
+                searchQuery = this.value;
+                filterFiles();
+            });
+
+            // Filter buttons
+            const filterButtons = document.querySelectorAll('.filter-buttons button');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    document.getElementById('selected-filter').textContent = 
+                        `Showing: ${currentFilter === 'all' ? 'All Files' : currentFilter.toUpperCase()}`;
+                    filterFiles();
+                });
+            });
+        }
+
+        // Filter files based on current filter and search query (unchanged)
+        function filterFiles() {
+            const fileElements = document.querySelectorAll('.file');
+            const folderElements = document.querySelectorAll('.folder');
+
+            // Filter files
+            fileElements.forEach(file => {
+                const fileName = file.querySelector('.file-name').textContent.toLowerCase();
+                const fileType = file.querySelector('.file-type').textContent.toLowerCase();
+                const matchesSearch = searchQuery === '' || fileName.includes(searchQuery.toLowerCase());
+                const matchesFilter = currentFilter === 'all' || fileType.includes(currentFilter);
+                if (matchesSearch && matchesFilter) {
+                    file.style.display = 'flex';
+                } else {
+                    file.style.display = 'none';
+                }
+            });
+
+            // Show/hide folders based on whether they have visible children
+            folderElements.forEach(folder => {
+                const folderContent = folder.querySelector('.folder-content');
+                const files = folderContent.querySelectorAll('.file');
+                let hasVisibleFiles = false;
+                files.forEach(file => {
+                    if (file.style.display !== 'none') {
+                        hasVisibleFiles = true;
+                    }
+                });
+                if (hasVisibleFiles || searchQuery === '') {
+                    folder.style.display = 'block';
+                } else {
+                    folder.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
