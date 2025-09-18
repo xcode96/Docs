@@ -1,0 +1,54 @@
+Adaptive SME Security v1 2024.pdf
+ISO27k ISMS 2 ISO27k standards listing 2024-12.pdf
+ISO27k ISMS 4 generic ISMS cost benefit analysis 2025.pdf
+ISO27k ISMS 4.4 mandatory and discretionary documentation guideline  2025.pdf
+ISO27k ISMS 6.1 guideline on security control attributes 2022.pdf
+ISO27k ISMS 6.1 information risk register v2 2012 - Brazilian Portuguese.xlsm
+ISO27k ISMS 6.1 Information risk register v3 2024.xlsm
+ISO27k ISMS 6.1 Iterative risk analysis.pdf
+ISO27k ISMS 6.1 SoA 2022 Espa¤ol Rev03 2022.xlsx
+ISO27k ISMS 6.1 SoA 2022 Portugues Rev01 2022.xlsx
+ISO27k ISMS 6.1 SoA 2025.xlsx
+ISO27k ISMS 6.1.2 information risk catalogue 2023.pdf
+ISO27k ISMS 6.3 infosec policy on change and config management 2022.pdf
+ISO27k ISMS 7.3 FAQ one pager 2022.pdf
+ISO27k ISMS 7.3 prepare to be audited leaflet 2022.pdf
+ISO27k ISMS 7.4 intro and gap analysis email template 2022.txt
+ISO27k ISMS 9.2 audit exercise 2021 - Brazilian Portuguese.pdf
+ISO27k ISMS 9.2 audit exercise 2021 - crib sheet - Brazilian Portuguese.pdf
+ISO27k ISMS 9.2 audit exercise 2021 - crib sheet - English.pdf
+ISO27k ISMS 9.2 audit exercise 2021 - English.pdf
+ISO27k ISMS 9.2 internal audit procedure 2022.pdf
+ISO27k ISMS 9.3 management review meeting agenda 2015 - Brazilian Portuguese.pdf
+ISO27k ISMS 9.3 management review meeting agenda 2022.pdf
+ISO27k ISMS A5.4 skeleton policy on  management responsibilities 2023.txt
+ISO27k ISMS A5.9 information asset checklist 2022.pdf
+ISO27k ISMS A5.9 information asset inventory 2012 - Brazilian Portuguese.xlsm
+ISO27k ISMS A5.10 professional services infosec checklists 2022.pdf
+ISO27k ISMS A5.15 skeleton policy on access control 2023.txt
+ISO27k ISMS A5.19 infosec policy on outsourcing 2023.pdf
+ISO27k ISMS A5.29 roles and responsibilities for contingency planning 2008 - Brazilian Portuguese.pdf
+ISO27k ISMS A5.32 skeleton policy on intellectual property 2023.txt
+ISO27k ISMS A5.34 briefing on ISO27k controls for GDPR 2022.pdf
+ISO27k ISMS A5.34 skeleton policy on privacy 2023.txt
+ISO27k ISMS A6 skeleton policy on HR overall 2023.txt
+ISO27k ISMS A6.2 skeleton policy on employment contracts 2023.txt
+ISO27k ISMS A6.3 infosec policy on awareness and training 2023.pdf
+ISO27k ISMS A7.1 skeleton policy on physical controls 2023.txt
+ISO27k ISMS A7.4 skeleton policy on physical security monitoring 2023.txt
+ISO27k ISMS A7.9 skeleton policy on off-site infosec 2023.txt
+ISO27k ISMS A7.12 skeleton policy on cabling security 2023.txt
+ISO27k ISMS A7.14 skeleton policy on secure disposal 2023.txt
+ISO27k ISMS A8.12 skeleton policy on data leakage prevention 2023.txt
+ISO27k ISMS A8.13 data restoration form 2012 - Brazilian Portuguese.pdf
+ISO27k ISMS A8.13 skeleton policy on backups 2023.txt
+ISO27k ISMS A8.20 skeleton policy on networks security 2023.txt
+ISO27k ISMS A8.32 skeleton policy on change management 2023.txt
+ISO27k ISMS documentation mind map 2023.jpg
+ISO27k ISMS gap analysis questionnaire v1 2024.xlsx
+ISO27k ISMS implementation and certification process 2022.pdf
+ISO27k ISMS implementation checklist 2024.pdf
+ISO27k ISMS implementation guideline 2024.pdf
+ISO27k ISMS implementation project estimator v3 2024.xlsx
+ISO27k ISMS technology briefing DRAFT 2024.pdf
+ISO27k Toolkit terms and conditions of use.pdf
