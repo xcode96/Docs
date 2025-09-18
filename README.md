@@ -1,1 +1,409 @@
-The about the ISMS Asome webpage
+# ISO 27001 ISMS Toolkit - File Structure
+
+## Root Directory
+- `.gitattributes`
+- `README.md`
+
+## ISMS Directory
+### ISO 27001 Toolkit Templates
+- `403 - ISMS Objectives and Issue Identified (template).docx`
+- `501 - Information Security Policy Template.docx`
+- `BYOD Policy.docx`
+
+### ISO-27001-2022-Toolkit-main
+- **1. Gap Assessment Plan/**
+  - `Gap Assessment Plan.xlsx`
+  - `Guidance on Gap Assessment.docx`
+- **2. SOA/**
+  - `Statement of Applicability with Implementation Status (SOA).xlsx`
+- **3. Risk Register/**
+  - `Guidance for Completing Risk Register.docx`
+  - `Risk Register.xlsx`
+- **4. Scope and Context Definition/**
+  - `Scope.docx`
+- **5. Asset Inventory/**
+  - `Asset Inventory.xlsx`
+- **6. Business Continuity and Disaster Recovery Plan/**
+  - `Business Continuity Plan.docx`
+  - `Disaster Recovery Plan.docx`
+- **7. Information Security Policy and Procedures/**
+  - `Information Security Policy and Procedures.docx`
+- **8. Awareness and Training Plan/**
+  - `Awareness and Training Plan.docx`
+- **9. Management Review Meeting/**
+  - `Management Review Meeting.docx`
+  - `Performance Measurement and Findings.xlsx`
+- **10. ISMS Checklists/**
+  - `ISMS Implementation Checklist.docx`
+  - `Information Risk Checklist.docx`
+  - `Mandatory ISMS Documentation Checklist.docx`
+- **11. Internal Audit Plan/**
+  - `Internal Audit Checklist.xlsx`
+  - `Internal Audit Plan.docx`
+- **12. Return on Investment (ROI)/**
+  - `Return on Investment (ROI).docx`
+- `LICENSE`
+- `README.md`
+
+### ISO27001security_dotcom_ISO27l_Toolkit_2025-3
+- `Adaptive SME Security v1 2024.pdf`
+- `ISO27001security dotcom List of files in the ISO27k Toolkit March 2025.txt`
+- `ISO27k ISMS 2 ISO27k standards listing 2024-12.pdf`
+- `ISO27k ISMS 4 generic ISMS cost benefit analysis 2025.pdf`
+- `ISO27k ISMS 4.4 mandatory and discretionary documentation guideline  2025.pdf`
+- `ISO27k ISMS 6.1 Information risk register v3 2024.xlsm`
+- `ISO27k ISMS 6.1 Iterative risk analysis.pdf`
+- `ISO27k ISMS 6.1 SoA 2022 Español Rev03 2022.xlsx`
+- `ISO27k ISMS 6.1 SoA 2022 Portugues Rev01 2022.xlsx`
+- `ISO27k ISMS 6.1 SoA 2025.xlsx`
+- `ISO27k ISMS 6.1 guideline on security control attributes 2022.pdf`
+- `ISO27k ISMS 6.1 information risk register v2 2012 - Brazilian Portuguese.xlsm`
+- `ISO27k ISMS 6.1.2 information risk catalogue 2023.pdf`
+- `ISO27k ISMS 6.3 infosec policy on change and config management 2022.pdf`
+- `ISO27k ISMS 7.3 FAQ one pager 2022.pdf`
+- `ISO27k ISMS 7.3 prepare to be audited leaflet 2022.pdf`
+- `ISO27k ISMS 7.4 intro and gap analysis email template 2022.txt`
+- `ISO27k ISMS 9.2 audit exercise 2021 - Brazilian Portuguese.pdf`
+- `ISO27k ISMS 9.2 audit exercise 2021 - English.pdf`
+- `ISO27k ISMS 9.2 audit exercise 2021 - crib sheet - Brazilian Portuguese.pdf`
+- `ISO27k ISMS 9.2 audit exercise 2021 - crib sheet - English.pdf`
+- `ISO27k ISMS 9.2 internal audit procedure 2022.pdf`
+- `ISO27k ISMS 9.3 management review meeting agenda 2015 - Brazilian Portuguese.pdf`
+- `ISO27k ISMS 9.3 management review meeting agenda 2022.pdf`
+- `ISO27k ISMS A5.10 professional services infosec checklists 2022.pdf`
+- `ISO27k ISMS A5.15 skeleton policy on access control 2023.txt`
+- `ISO27k ISMS A5.19 infosec policy on outsourcing 2023.pdf`
+- `ISO27k ISMS A5.29 roles and responsibilities for contingency planning 2008 - Brazilian Portuguese.pdf`
+- `ISO27k ISMS A5.32 skeleton policy on intellectual property 2023.txt`
+- `ISO27k ISMS A5.34 briefing on ISO27k controls for GDPR 2022.pdf`
+- `ISO27k ISMS A5.34 skeleton policy on privacy 2023.txt`
+- `ISO27k ISMS A5.4 skeleton policy on  management responsibilities 2023.txt`
+- `ISO27k ISMS A5.9 information asset checklist 2022.pdf`
+- `ISO27k ISMS A5.9 information asset inventory 2012 - Brazilian Portuguese.xlsm`
+- `ISO27k ISMS A6 skeleton policy on HR overall 2023.txt`
+- `ISO27k ISMS A6.2 skeleton policy on employment contracts 2023.txt`
+- `ISO27k ISMS A6.3 infosec policy on awareness and training 2023.pdf`
+- `ISO27k ISMS A7.1 skeleton policy on physical controls 2023.txt`
+- `ISO27k ISMS A7.12 skeleton policy on cabling security 2023.txt`
+- `ISO27k ISMS A7.14 skeleton policy on secure disposal 2023.txt`
+- `ISO27k ISMS A7.4 skeleton policy on physical security monitoring 2023.txt`
+- `ISO27k ISMS A7.9 skeleton policy on off-site infosec 2023.txt`
+- `ISO27k ISMS A8.12 skeleton policy on data leakage prevention 2023.txt`
+- `ISO27k ISMS A8.13 data restoration form 2012 - Brazilian Portuguese.pdf`
+- `ISO27k ISMS A8.13 skeleton policy on backups 2023.txt`
+- `ISO27k ISMS A8.20 skeleton policy on networks security 2023.txt`
+- `ISO27k ISMS A8.32 skeleton policy on change management 2023.txt`
+- `ISO27k ISMS documentation mind map 2023.jpg`
+- `ISO27k ISMS gap analysis questionnaire v1 2024.xlsx`
+- `ISO27k ISMS implementation and certification process 2022.pdf`
+- `ISO27k ISMS implementation checklist 2024.pdf`
+- `ISO27k ISMS implementation guideline 2024.pdf`
+- `ISO27k ISMS implementation project estimator v3 2024.xlsx`
+- `ISO27k ISMS technology briefing DRAFT 2024.pdf`
+- `ISO27k Toolkit terms and conditions of use.pdf`
+
+### iso27000toolkit-master
+- **ISMS Governance, Management & Implementation Guidance/**
+  - `Awareness Presentation.pptx`
+  - `Business case template for ISO IEC 27001 ISMS.docx`
+  - `Business value of ISO27K case study.docx`
+  - `Business value of ISO27K case study.pdf`
+  - `ISMS Management Review Meeting Agenda.docx`
+  - `ISMS Management Review Meeting Agenda.pdf`
+  - `ISMS Mandatory Documentation Checklist.docx`
+  - `ISMS Project plan.mpp`
+  - `ISMS and controls status with SoA and gaps.xlsx`
+  - `ISMS implementation project estimator.xlsx`
+  - `Information security program maturity assessment tool.xlsx`
+  - **Sample Awareness Posters/**
+    - `115-reporting-incidents-poster.jpg`
+    - `116-Compromised-Computer-poster.jpg`
+    - `202-Protecting-Business-Information.jpg`
+    - `207-BYOD.jpg`
+    - `208-Data-Destruction.jpg`
+    - `209-Understanding-threats.jpg`
+    - `ENISA_poster_ATM_skimmed card_01.pdf`
+    - `ENISA_poster_Ctrl Alt Del_02.pdf`
+    - `ENISA_poster_Going for a coffee_03.pdf`
+    - `ENISA_poster_Going for a meeting_01.pdf`
+    - `cybersecurity-month-2018-poster-03-clean-up-en-ww.png`
+    - `cybersecurity-month-2018-poster-04-bait-en-ww.png`
+    - `cybersecurity-month-2018-poster-05-firewalls-en-ww.png`
+    - `cybersecurity-month-2018-poster-06-malware-en-ww.png`
+    - `cybersecurity-month-2018-poster-08-get-shredding-en-ww.png`
+    - `cybersecurity-month-2018-poster-11-protect-en-ww.png`
+    - `cybersecurity-month-2018-poster-21-passwords-en-ww.png`
+    - `cybersecurity-month-2018-poster-26-protect-your-data-en-ww.png`
+    - `cybersecurity-month-2018-poster-28-scan-emails-en-ww.png`
+    - `cybersecurity-month-2018-poster-29-lock-devices-en-ww.png`
+    - `security-awareness-poster-microtraining-206-remote-computing.jpg`
+    - `security-awareness-poster-microtraining-210-encryption.jpg`
+- **ISMS Overview and Introductory Materials/**
+  - `ISMS Auditing Guideline.pdf`
+  - `ISMS Implementation and Certification Basic Process Croatian.pdf`
+  - `ISMS Implementation and Certification Basic Process Croatian.png`
+  - `ISMS Implementation and Certification Basic Process Italian.pdf`
+  - `ISMS Implementation and Certification Basic Process Italian.png`
+  - `ISMS Implementation and Certification Basic Process Polish.pdf`
+  - `ISMS Implementation and Certification Basic Process Polish.png`
+  - `ISMS Implementation and Certification Basic Process Spanish.pdf`
+  - `ISMS Implementation and Certification Basic Process Spanish.png`
+  - `ISMS Implementation and Certification Detailed Process Croatian.png`
+  - `ISMS Implementation and Certification Detailed Process Italian.png`
+  - `ISMS Implementation and Certification Detailed Process Polish.png`
+  - `ISMS Implementation and Certification Detailed Process Spanish.png`
+  - `ISMS Implementation and Certification Overview.pptx`
+  - `ISMS Implementation and Certification Process 4v1 Basic Process.jpg`
+  - `ISMS Implementation and Certification Process 4v1 French.jpg`
+  - `ISMS Implementation and Certification Process 4v1 French.pdf`
+  - `ISMS Implementation and Certification Process 4v1 French.vsdx`
+  - `ISMS Implementation and Certification Process 4v1 German.jpg`
+  - `ISMS Implementation and Certification Process 4v1 German.pdf`
+  - `ISMS Implementation and Certification Process 4v1 German.vsdx`
+  - `ISMS Implementation and Certification Process 4v1 Procedures and Documents.jpg`
+  - `ISMS Implementation and Certification Process 4v1.jpg`
+  - `ISMS Implementation and Certification Process 4v1.pdf`
+  - `ISMS Implementation and Certification Process 4v1.vsdx`
+  - `ISMS Implementation and Certification Process v3.pdf`
+  - `ISMS Implementation and Certification Process v3.vsdx`
+  - `ISMS Information Risk Management Process v1 Flowchart.pdf`
+  - `ISMS Information Risk Management Process v1-Basic RM Process Flowchart.jpg`
+  - `ISMS Information Risk Management Process v1-Detailed Process Flowchart.jpg`
+  - `ISMS Information Risk Management Process v1.vsdx`
+  - `ISO 27001 Maltego Mind Map.mtgx`
+  - `ISO 27001 Maltego Mind Map.pdf`
+  - `ISO27K FAQ.pdf`
+  - `ISO27K Standards List.pdf`
+- **ISMS Procedures, Guidelines and Other Supporting Documents/**
+  - `Asset Register.xlsx`
+  - `Asset inventory.xlsm`
+  - `Controls Cross Check 2013.xlsx`
+  - `Corrective Action Procedure.pdf`
+  - `Data Restoration Form.docx`
+  - `FMEA Spreadsheet.xlsx`
+  - `GDPR-ISO27K Mapping.docx`
+  - `GDPR-ISO27K Mapping.pdf`
+  - `Guideline on Information Asset Valuation.docx`
+  - `Guideline on Information Asset Valuation.pdf`
+  - `ISMS Auditing Guideline.docx`
+  - `ISMS Information Risk Register.xlsm`
+  - `ISMS Internal Audit Procedure.docx`
+  - `Information Classification Matrix.xlsx`
+  - `Intro and Gap Analysis email Template.txt`
+  - `Non-conformity Corrective Preventive Action Form.docx`
+  - `Preventive Action Procedure.pdf`
+  - `SOA 2013 in 5 languages.xlsx`
+- **ISMS Related Job Descriptions, Roles and Responsibilities/**
+  - `ISM organization chart data.xlsx`
+  - **Job Descriptions/**
+    - `BYOD Security Manager.docx`
+    - `Business Continuity Manager.docx`
+    - `Chief Information Security Officer.docx`
+    - `Compliance Manager.docx`
+    - `Counterespionage Manager.docx`
+    - `Database Security Manager.docx`
+    - `Fraud Manager.docx`
+    - `IT Audit Manager.docx`
+    - `IT Auditor.docx`
+    - `Industrial Information Risk and Security Manager.docx`
+    - `Information Risk and Security Manager.docx`
+    - `Information Security Incident Manager.docx`
+    - `Intellectual Property Manager.docx`
+    - `Internet Risk and Security Manager.docx`
+    - `Iot and BYOD Security Manager.docx`
+    - `Malware Analyst.docx`
+    - `Network Risk Analyst.docx`
+    - `Network Risk Manager.docx`
+    - `Permissions Manager.docx`
+    - `Physical Security Manager.docx`
+    - `Privacy Officer.docx`
+    - `Security Administration Team Leader.docx`
+    - `Security Administrator.docx`
+    - `Security Awareness Contact.docx`
+    - `Security Awareness Manager.docx`
+    - `Security Awareness Officer.docx`
+    - `Technology Risk Manager.docx`
+    - `Whistleblowers' Hotline Case Handler.docx`
+    - `Whistleblowers' Hotline Manager.docx`
+    - `Workplace Information Security Representative.docx`
+  - `Organization of Information Security.docx`
+  - `RASCI table.xlsx`
+  - `Roles and Responsibilities for Contingency Planning.docx`
+  - `Roles and Responsibilities for Contingency Planning.pdf`
+  - `Technical Briefing on Security Roles and Responsibilities Matrix.pdf`
+- **Model Information Security Policies/**
+  - `Model Policy on Change Management and Control.docx`
+  - `Model Policy on Information Classification.pdf`
+  - `Model Policy on Information Security.pdf`
+  - `Model Policy on Malware.pdf`
+  - `Model Policy on Outsourcing.docx`
+  - `Model Policy on Security Awareness and Training.pdf`
+- `ISO27K TOOLKIT.pdf`
+- `README.md`
+
+## Infographics Directory
+- `+90% RESUME.jpeg`
+- `052c80fadf40fc8d60600f87946262b0.jpg`
+- `10 ACTIVE DIRECTORY ATTACKS.jpeg`
+- `10 free siems.jpeg`
+- `15 TYPES OF CYBERATTACK.gif`
+- `20 API SEC TIPS.gif`
+- `4 HOURS A DAY AND MAKE 730K.jpeg`
+- `7 DATA TERMS.gif`
+- `AGILE DEVOPS.gif`
+- `AGILE TESTING.gif`
+- `API ARCHITECTURE STYLE.gif`
+- `API GATEWAY.gif`
+- `ATTACK E EXPLOITS IN OSI.jpeg`
+- `AUTHENTICATION METHODS.gif`
+- `AUTOMOTIVE CYBERSEC.jpeg`
+- `AVIATION CYBER SECURITY.jpeg`
+- `AZURE ARCHITECTURE.gif`
+- `BIG DATA PIPELINES ON CLOUD.gif`
+- `BLUE VS RED.jpeg`
+- `BODY LANGUAGE.jpeg`
+- `CCNA-Sheet-Summary-Pdf_page-0001-990x1285.webp`
+- `CISSP CHEAT SHEET.jpeg`
+- `CLOUD APP PROTECTION.gif`
+- `CLOUD COMPARISION 3.gif`
+- `CLOUD COMPARISION.gif`
+- `CLOUD LOAD BALANCER.gif`
+- `CLOUD RISK FRAMEWORK.jpeg`
+- `CLOUD SECURITY FRAMEWORK.jpeg`
+- `CLOUD SECURITY.jpeg`
+- `COBIT ISO NIST.jpeg`
+- `COMMON LINUX COMMANDS.gif`
+- `COMPLIANCES.jpeg`
+- `CROSS SITE REQUEST FORGERY.gif`
+- `CYBER ECO SYSTEM.jpeg`
+- `CYBER SEC EXPERIENCE.gif`
+- `CYBER SEC ROLES.jpeg`
+- `CYBER SECURITY.jpeg`
+- `Common-Network-Ports-Quick-Reference.webp`
+- `Cybersec Search Engines.gif`
+- `DATA CONCEPTS.gif`
+- `DATA SEC AND DATA PROTECTIONS.jpeg`
+- `DATA SECURITY.gif`
+- `DATASETS TYPES.gif`
+- `DIGITAL SIGNATURE.jpeg`
+- `DNS CHACHE POISONING.gif`
+- `DOCKE COMMANDS.gif`
+- `DOCKER.gif`
+- `Docker Image Build.gif`
+- `EMAIL TIPS.jpeg`
+- `ENCODING ENCRYPTION HASH.jpeg`
+- `EVOLUTION OF SOFTWARE ARCHITECTURE.gif`
+- `EXCEL TIPS.jpeg`
+- `FIREWALL USES.jpeg`
+- `GPT JOBSEEKING.gif`
+- `HEALTHCARE SECURITY.jpeg`
+- `HMAC.jpeg`
+- `HTTP REQUESTS.jpeg`
+- `HTTPS.gif`
+- `IDOR WEB ATTACK.gif`
+- `INCIDENT RESPONSE METHODS.jpeg`
+- `INCIDENT RESPONSE.gif`
+- `IODOR WEB ATTACK.gif`
+- `ISO 27001.jpeg`
+- `Identity Access Management.jpg`
+- `LINUX BOOT 2.gif`
+- `LINUX BOOT.gif`
+- `LINUX COMMANDS.gif`
+- `LINUX DIRECTORY.gif`
+- `LINUX FILE PERMISISON CHEATSHEET.gif`
+- `LINUX FILE PERMISSION.jpeg`
+- `LINUX FILE SYSTEM.gif`
+- `LINUX WORKINGS.gif`
+- `MACHINE LERNING ALGORITHMS.gif`
+- `MALWARE AND RANSOMWARE.gif`
+- `MAN IN THE MIDDLE.gif`
+- `MANAGING SENSITIVE DATA.gif`
+- `MICROPROCESSOR VS MICROCONTROLLER.gif`
+- `MILITARY CYBERSECURITY.jpeg`
+- `NETWORK PROTOCOLS 2.gif`
+- `NETWORK PROTOCOLS.gif`
+- `NIST 2.0.gif`
+- `Network Protocol Dependecies.jpg`
+- `OSI LAyer Ataack Mitigation.gif`
+- `OSI MODEL.gif`
+- `OSI VS CYBER ATTACKS.gif`
+- `PATH TO GET A JOB IN CYBER SEC.jpeg`
+- `PERSONALITY TYPES.jpeg`
+- `PRODUCTIVITY.jpeg`
+- `PROGRAMMING BUGS.gif`
+- `RAILK METRO CYBERSEC.jpeg`
+- `RAILWAY SECURITY.jpeg`
+- `RISK ASSETMENT.gif`
+- `ROTKIT.gif`
+- `SECURE VS INSECURE PORTS.jpeg`
+- `SERVER SIDE REQUEST FORGERY.jpeg`
+- `SINGLE SIGN ON.gif`
+- `SOCIAL ENGINEERING.gif`
+- `SOFTARE SECURITY.jpeg`
+- `SOFTWARE ARCHITECTURE.gif`
+- `SPYWARE.gif`
+- `SSO AND SAML.gif`
+- `SUB DOMAIN TAKEOVER.gif`
+- `SYSTEM DESIGN.gif`
+- `TOP NETWORK SECURITY.gif`
+- `TROJAN.gif`
+- `TYPES OF DATA.gif`
+- `TYPES OF IP.gif`
+- `TYPES OF LOGS.jpeg`
+- `TYPES OF VIRUS.gif`
+- `Types of Firewalls.jpg`
+- `URL.gif`
+- `VPN.gif`
+- `VULNERABILITY MANAGEMENT.jpeg`
+- `WATERING HOLE ATTACK.gif`
+- `WIRELESS NETWORK ATTACK.gif`
+- `Web App Architechture.gif`
+- `Windows Directories.jpg`
+- `ZTA VS VPN.jpeg`
+- `a543cb0bf6521439b7c0b6e89bf6eb68.jpg`
+- `api security for security compliance.jpeg`
+- `avoid burnuout.jpeg`
+- `ccna cheet sheet.webp`
+- `common network ports.webp`
+- `cyber security health list.jpeg`
+- `cybersec acronyms.jpeg`
+- `cybersec roles.jpeg`
+- `ddos.jpeg`
+- `designin secure systems.gif`
+- `dns.gif`
+- `encoding encryption tokenization.gif`
+- `excel shortcuts.jpeg`
+- `generative ai ecosystem.gif`
+- `how email works.gif`
+- `how git works.gif`
+- `http status messages.gif`
+- `ids vs ips.gif`
+- `ids vs ips.jpg`
+- `ipaddress.gif`
+- `iso27001-1.webp`
+- `iso27001-2.png`
+- `iso27001-3.png`
+- `iso27002.png`
+- `iso31000-1.gif`
+- `iso31000.jpg`
+- `linux boot process.gif`
+- `linux cheatsheet.gif`
+- `linux terminal shortcuts.jpeg`
+- `mitre attack.jpeg`
+- `most important aws services to learn.jpg`
+- `network troubleshooting.jpeg`
+- `new-compliance-isms-ISO-27001-standard-2022.jpg`
+- `osi model.jpeg`
+- `osint cheat sheet.jpeg`
+- `remote file inclusion.jpeg`
+- `siem homelab.jpeg`
+- `soap vs rest vs graphicql.gif`
+- `ssl cert.gif`
+- `ssl tsl handshake.jpeg`
+- `ssl.gif`
+- `the-complete-computer-hardware-chart.webp`
+- `thumb_1200_1553.png`
+- `types of firewalls.gif`
+- `udp usage.jpeg`
+- `web app test.jpeg`
+- `xdr vs siem.gif`
